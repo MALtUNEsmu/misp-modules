@@ -1,5 +1,6 @@
 import base64
 import json
+import requests
 
 from pymisp import MISPObject
 
@@ -21,7 +22,10 @@ moduleinfo = {
     "output": "MISP objects with attributes",
 }
 
-moduleconfig = []
+moduleconfig = [
+    "apikey",
+    "fame_instance_url"
+]
 
 mispattributes = {
     "inputSource": ["file"],
@@ -30,17 +34,30 @@ mispattributes = {
 }
 
 userConfig = {
-    "include_unconfirmed": {
-        "type": "Boolean",
-        "message": "Include findings whose exploitation could not be confirmed",
-        "checked": "true",
+    "filter_by_tag": {
+        "type": "String",
+        "message": "Add tag based on...",
+        "checked": "false",
     },
 }
 
 ANALYSIS_STATUS = ("Pending", "Finished", "")
+headers = {
+    'Accept': "application/json",
+    'X-API-KEY': FAME_API_KEY
+}
+ENDPOINT = # have the url of the instance here
 
 def handler(q=False):
 ##
+
+
+with open(filepath, 'rb') as f:
+    
+       'file': id
+
+
+    r = requests.get(ENDPOINT/file, data=params, files=files, headers=headers)
     return {"results": fame.results}
 
 
